@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dildo tv</title>
+    <title>Матвей Бодяг</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        :root {
+            --bg-main: #0d1117;
+            --bg-panel: rgba(22, 27, 34, 0.9);
+            --accent-cyan: #00d4ff;
+            --accent-purple: #7b2ff7;
+            --text-light: #e6edf3;
+            --text-muted: #8b949e;
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --glass-blur: 10px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,233 +25,218 @@
         }
 
         body {
-            background: #0a0e1a;
-            color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-light);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* ВЕРХНЯЯ СИНЯЯ ПАНЕЛЬ */
-        .header {
-            width: 100%;
-            background: linear-gradient(135deg, #0d47a1, #1565c0);
-            padding: 18px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 4px 30px rgba(13, 71, 161, 0.5);
-            border-bottom: 2px solid #42a5f5;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 900;
-            letter-spacing: 3px;
-            color: #fff;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(66, 165, 245, 0.3);
-        }
-
-        .logo span {
-            color: #64b5f6;
-        }
-
-        .live-badge {
-            background: #ff1744;
-            color: #fff;
-            font-weight: bold;
-            font-size: 0.9rem;
-            padding: 6px 16px;
-            border-radius: 20px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            animation: pulse 1.5s infinite;
-            box-shadow: 0 0 20px rgba(255, 23, 68, 0.4);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.95); }
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #90caf9;
-            font-size: 0.9rem;
-        }
-
-        .header-right .viewers {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 6px 14px;
-            border-radius: 20px;
-            color: #fff;
+            overflow-x: hidden;
         }
 
         .container {
-            width: 100%;
             max-width: 1400px;
-            padding: 30px 40px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ====== ЗАГОЛОВОК ====== */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ====== ОСНОВНАЯ СЕТКА ====== */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
             flex: 1;
         }
 
-        /* ПЛЕЕР */
-        .player-wrapper {
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            aspect-ratio: 16 / 9;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
-            border: 1px solid #1a237e;
+        /* ====== БОКОВАЯ ПАНЕЛЬ ====== */
+        .sidebar {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .player-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        /* Кнопка DONATION ALERTS */
+        .btn {
             display: block;
-            background: #000;
-        }
-
-        /* ОПИСАНИЕ СНИЗУ */
-        .description {
-            margin-top: 25px;
-            padding: 20px 25px;
-            background: linear-gradient(135deg, #0d1b2a, #1a237e);
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
             border-radius: 12px;
-            border-left: 4px solid #42a5f5;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(var(--glass-blur));
         }
 
-        .description h2 {
-            font-size: 1.3rem;
-            color: #64b5f6;
-            margin-bottom: 8px;
+        .btn:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        /* Панелька под кнопкой */
+        .panel-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(var(--glass-blur));
+            margin-top: 20px;
+        }
+
+        .panel-title {
+            color: var(--accent-cyan);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-glass);
+            padding-bottom: 10px;
+        }
+
+        .panel-text {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .status-online {
+            color: #3fb950;
             font-weight: 600;
         }
 
+        /* ====== ВИДЕО ====== */
+        .video-wrapper {
+            flex: 1;
+            min-width: 300px;
+            max-width: 900px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            overflow: hidden;
+            backdrop-filter: blur(var(--glass-blur));
+            padding: 10px;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* ====== ОПИСАНИЕ ====== */
+        .description {
+            margin-top: 40px;
+            padding: 25px;
+            background: var(--bg-panel);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            backdrop-filter: blur(var(--glass-blur));
+        }
+
         .description p {
-            color: #b0bec5;
-            font-size: 1rem;
-            line-height: 1.6;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 10px;
         }
 
-        .description .tags {
-            margin-top: 12px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+        .description h3 {
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 15px;
         }
 
-        .description .tags span {
-            background: rgba(66, 165, 245, 0.15);
-            color: #64b5f6;
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            border: 1px solid rgba(66, 165, 245, 0.2);
-        }
-
-        /* АДАПТИВНОСТЬ */
+        /* ====== АДАПТИВНОСТЬ ====== */
         @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .logo {
-                font-size: 1.6rem;
-            }
-            .container {
-                padding: 15px 15px;
-            }
-            .description {
-                padding: 15px;
-            }
-            .description h2 {
-                font-size: 1.1rem;
-            }
+            h1 { font-size: 2rem; }
+            .main-content { flex-direction: column; align-items: center; }
+            .sidebar { width: 100%; max-width: 500px; order: 2; }
+            .video-wrapper { order: 1; width: 100%; }
+            .video-wrapper iframe { height: 300px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ВЕРХНЯЯ СИНЯЯ ПАНЕЛЬ -->
-    <header class="header">
-        <div class="header-left">
-            <div class="logo">Mamer <span>tv</span></div>
-            <div class="live-badge"></div>
-        </div>
-        <div class="header-right">
-            <span class="viewers"></span>
-            <span>|</span>
-            <span>24/7</span>
-        </div>
-    </header>
+    <div class="container">
+        <!-- Заголовок -->
+        <header>
+            <h1>MemerTV</h1>
+        </header>
 
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
+        <!-- Основной контент -->
+        <div class="main-content">
+            
+            <!-- Левая панель с одной кнопкой -->
+            <div class="sidebar">
+                <a href="https://www.donationalerts.com/r/flanixtech" class="btn">DONATION ALERTS</a>
 
-      <iframe
-        width="720"
-        height="405"
-        src="https://rutube.ru/play/embed/02ef7e373dca32f714feb43a6d7d3758"
-        style="border: none;"
-        allow="clipboard-write; autoplay"
-        allowFullScreen
-      ></iframe>
-    
-        <!-- Описание -->
-        <div class="description">
-            <h2>Mamer TV</h2>
-            <p>
-               перехватавайте уже данные для обс в тт flanixtech
-            </p>
-            <div class="tags">
-                <span>#live</span>
-                <span>#18+</span>
-                <span>#adult</span>
-                <span>#stream</span>
+                <!-- Панелька под кнопкой -->
+                <div class="panel-box">
+                    <div class="panel-title">* Welcome *</div>
+                    <p class="panel-text">Перехватавайте MemerTV!</p>
+                    <p class="panel-text">Жми на кнопку, чтобы поддержать.</p>
+                    <p class="status-online"></p>
+                </div>
+            </div>
+
+            <!-- Видео (Rutube) -->
+            <div class="video-wrapper">
+                <iframe 
+                    width="1920" 
+                    height="1080" 
+                    src="https://rutube.ru/play/embed/02ef7e373dca32f714feb43a6d7d3758/" 
+                    style="border: none;" 
+                    allow="clipboard-write; autoplay" 
+                    allowFullScreen>
+                </iframe>
             </div>
         </div>
+
+        <!-- Описание (заполните своим текстом) -->
+        <div class="description">
+            <h3>ОПИСАНИЕ</h3>
+            <p>JGBCFYBT</p>
+            <p>Подпишитесь на мой тт flanixtech</p>
+        </div>
     </div>
-
-    <!-- ВКЛЮЧЕНИЕ ЗВУКА ПО УМОЛЧАНИЮ -->
-    <script>
-        // Ждём загрузки iframe
-        document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.querySelector('iframe');
-            
-            // Пытаемся включить звук через параметры iframe
-            // и при клике на страницу
-            function enableSound() {
-                // Обновляем iframe с параметром muted=0
-                const src = iframe.src.replace('muted=1', 'muted=0');
-                iframe.src = src;
-            }
-
-            // При первом клике на страницу включаем звук
-            document.addEventListener('click', function() {
-                enableSound();
-            }, { once: true });
-
-            // Также пытаемся включить звук через 2 секунды
-            setTimeout(enableSound, 2000);
-        });
-    </script>
 
 </body>
 </html>
